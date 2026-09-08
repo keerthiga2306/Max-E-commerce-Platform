@@ -1,6 +1,6 @@
-# 🛒 Max Online E-Commerce Database Management System
+#  Max Online E-Commerce Database Management System
 
-## 📖 Introduction
+##  Introduction
 
 The **Max Online E-Commerce Database Management System** is a web-based application designed to simplify and automate online shopping operations. It provides customers with a secure platform to browse products, add items to a shopping cart, place orders, make online payments, and track purchases.
 
@@ -8,7 +8,7 @@ The system also enables administrators to manage products, categories, customers
 
 ---
 
-# 🎯 Project Objectives
+#  Project Objectives
 
 The primary objective of this project is to develop an efficient database management system that improves the online shopping experience and simplifies business operations.
 
@@ -27,7 +27,7 @@ The primary objective of this project is to develop an efficient database manage
 
 ---
 
-# 💡 Motivation
+#  Motivation
 
 With the rapid growth of e-commerce, businesses need efficient systems to manage products, customers, orders, and inventory.
 
@@ -58,7 +58,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# ✨ Features
+#  Features
 
 ### Customer
 
@@ -84,7 +84,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# ⚙ Functional Requirements
+#  Functional Requirements
 
 - User Registration and Login
 - Product Management
@@ -101,7 +101,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# 🚀 Non-Functional Requirements
+#  Non-Functional Requirements
 
 - User-friendly Interface
 - High Performance
@@ -114,7 +114,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# 💻 Hardware Requirements
+#  Hardware Requirements
 
 | Component | Requirement |
 |-----------|-------------|
@@ -126,7 +126,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# 🛠 Software Requirements
+#  Software Requirements
 
 | Software | Technology |
 |----------|------------|
@@ -139,7 +139,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# 🗂 Database Modules
+#  Database Modules
 
 - Customer Management
 - Product Management
@@ -152,7 +152,7 @@ The **Max Online E-Commerce Database Management System** solves these issues by 
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```
 Max-Online-Ecommerce/
@@ -176,7 +176,7 @@ Max-Online-Ecommerce/
 
 ---
 
-# 🛢 Database
+#  Database
 
 Database Name:
 
@@ -198,7 +198,7 @@ Main Tables
 
 ---
 
-# ▶ Installation
+#  Installation
 
 ### 1. Clone Repository
 
@@ -259,7 +259,7 @@ http://localhost/max-online-ecommerce/
 
 ---
 
-# 📷 Screenshots
+#  Screenshots
 
 - Home Page
 - Login
@@ -273,7 +273,7 @@ http://localhost/max-online-ecommerce/
 
 ---
 
-# 🔒 Future Enhancements
+#  Future Enhancements
 
 - Online Payment Gateway Integration
 - Product Reviews
@@ -286,6 +286,6 @@ http://localhost/max-online-ecommerce/
 
 ---
 
-# 📌 Conclusion
+#  Conclusion
 
 The **Max Online E-Commerce Database Management System** provides a complete solution for managing online shopping activities through a centralized database. It automates product management, customer handling, inventory control, order processing, and payment management while reducing manual effort and improving accuracy. The system offers a secure, efficient, and user-friendly shopping experience for customers and an effective management platform for administrators. With its scalable design, the project can be enhanced in the future by integrating advanced features such as payment gateways, AI-based product recommendations, mobile applications, and analytics, making it suitable for modern e-commerce businesses
