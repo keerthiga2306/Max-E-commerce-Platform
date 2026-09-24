@@ -43,7 +43,7 @@ This project was developed to:
 
 ---
 
-# ❗ Problem Statement
+#  Problem Statement
 
 Traditional retail systems rely heavily on manual record keeping, resulting in:
 
