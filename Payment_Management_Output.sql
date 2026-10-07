@@ -1,184 +1,209 @@
-SQL> CREATE TABLE Payment (
-  2      Payment_ID NUMBER PRIMARY KEY,
-  3      Order_ID NUMBER,
-  4      Payment_Mode VARCHAR2(20) NOT NULL,
-  5      Payment_Date DATE NOT NULL,
-  6      Payment_Amount NUMBER(10,2) NOT NULL,
-  7      Payment_Status VARCHAR2(20) NOT NULL,
-  8      FOREIGN KEY (Order_ID)
-  9          REFERENCES Orders(Order_ID)
- 10  );
+SQL> CREATE TABLE Category (
+  2      Category_ID INT PRIMARY KEY,
+  3      Category_Name VARCHAR(50) UNIQUE NOT NULL,
+  4      Description VARCHAR(200)
+  5  );
 
 Table created.
 
-SQL> INSERT INTO Payment VALUES
-  2  (501, 1001, 'UPI', DATE '2026-10-01', 2298, 'Successful');
+SQL> INSERT INTO Category VALUES
+  2  (101, 'Men Watches', 'Stylish watches for men');
 
 1 row created.
 
-SQL>
-SQL> INSERT INTO Payment VALUES
-  2  (502, 1002, 'Card', DATE '2026-10-02', 999, 'Successful');
+SQL> INSERT INTO Category VALUES
+  2  (102, 'Women Watches', 'Elegant watches for women');
 
 1 row created.
 
-SQL>
-SQL> INSERT INTO Payment VALUES
-  2  (503, 1003, 'Cash', DATE '2026-10-03', 2499, 'Successful');
+SQL> INSERT INTO Category VALUES
+  2  (103, 'Smart Watches', 'Digital and smart wearable watches');
 
 1 row created.
 
-SQL>
-SQL> INSERT INTO Payment VALUES
-  2  (504, 1004, 'UPI', DATE '2026-10-04', 1599, 'Failed');
+SQL> INSERT INTO Category VALUES
+  2  (104, 'Luxury Watches', 'Premium luxury watch collection');
 
 1 row created.
 
-SQL>
-SQL> INSERT INTO Payment VALUES
-  2  (505, 1005, 'Card', DATE '2026-10-05', 1798, 'Successful');
+SQL> CREATE TABLE Product (
+  2      Product_ID INT PRIMARY KEY,
+  3      Product_Name VARCHAR2(100) NOT NULL,
+  4      Category_ID INT,
+  5      Brand VARCHAR2(50),
+  6      Price NUMBER(10,2),
+  7      Stock INT NOT NULL,
+  8      CONSTRAINT fk_category
+  9          FOREIGN KEY (Category_ID)
+ 10          REFERENCES Category(Category_ID)
+ 11  );
+
+Table created.
+
+SQL> INSERT INTO Product
+  2  VALUES (201, 'Titan Neo', 101, 'Titan', 4999, 25);
 
 1 row created.
 
-SQL> SELECT * FROM Payment;
+SQL> INSERT INTO Product
+  2  VALUES (202, 'Fastrack Reflex', 103, 'Fastrack', 2999, 40);
 
-PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-       501       1001 UPI                  01-OCT-26           2298
-Successful
+1 row created.
 
-       502       1002 Card                 02-OCT-26            999
-Successful
+SQL> INSERT INTO Product
+  2  VALUES (203, 'Casio Vintage', 102, 'Casio', 3499, 18);
 
-       503       1003 Cash                 03-OCT-26           2499
-Successful
+1 row created.
 
+SQL> INSERT INTO Product
+  2  VALUES (204, 'Fossil Grant', 104, 'Fossil', 8999, 12);
 
-PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-       504       1004 UPI                  04-OCT-26           1599
-Failed
+1 row created.
 
-       505       1005 Card                 05-OCT-26           1798
-Successful
+SQL> INSERT INTO Product
+  2  VALUES (205, 'Sonata Classic', 101, 'Sonata', 1999, 30);
 
+1 row created.
 
-SQL> SELECT *
-  2  FROM Payment
-  3  WHERE Payment_Status = 'Successful';
+SQL> SELECT * FROM Category;
 
-PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-       501       1001 UPI                  01-OCT-26           2298
-Successful
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+        101 Men Watches
+Stylish watches for men
 
-       502       1002 Card                 02-OCT-26            999
-Successful
+        102 Women Watches
+Elegant watches for women
 
-       503       1003 Cash                 03-OCT-26           2499
-Successful
+        103 Smart Watches
+Digital and smart wearable watches
 
 
-PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-       505       1005 Card                 05-OCT-26           1798
-Successful
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+        104 Luxury Watches
+Premium luxury watch collection
 
 
 
-SQL> SELECT *
-  2  FROM Payment
-  3  WHERE Payment_Status = 'Failed';
+SQL> SELECT * FROM Product;
 
-PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-       504       1004 UPI                  04-OCT-26           1599
-Failed
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID BRAND                                                   PRICE
+----------- -------------------------------------------------- ----------
+     STOCK
+----------
+       201
+Titan Neo
+        101 Titan                                                    4999
+        25
 
 
-SQL> UPDATE Payment
-  2  SET Payment_Status = 'Successful'
-  3  WHERE Payment_ID = 504;
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID BRAND                                                   PRICE
+----------- -------------------------------------------------- ----------
+     STOCK
+----------
+       202
+Fastrack Reflex
+        103 Fastrack                                                 2999
+        40
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID BRAND                                                   PRICE
+----------- -------------------------------------------------- ----------
+     STOCK
+----------
+       203
+Casio Vintage
+        102 Casio                                                    3499
+        18
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID BRAND                                                   PRICE
+----------- -------------------------------------------------- ----------
+     STOCK
+----------
+       204
+Fossil Grant
+        104 Fossil                                                   8999
+        12
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID BRAND                                                   PRICE
+----------- -------------------------------------------------- ----------
+     STOCK
+----------
+       205
+Sonata Classic
+        101 Sonata                                                   1999
+        30
+
+
+SQL> UPDATE Product
+  2  SET Price = 5499
+  3  WHERE Product_ID = 201;
 
 1 row updated.
 
+  
+SQL> DELETE FROM Product
+  2  WHERE Product_ID = 205;
+
+1 row deleted.
+
+
+  SQL> SELECT
+  2      Category_ID,
+  3      COUNT(*) AS Total_Products,
+  4      SUM(Price) AS Total_Price,
+  5      AVG(Price) AS Average_Price
+  6  FROM Product
+  7  GROUP BY Category_ID
+  8  ORDER BY Category_ID;
+
+CATEGORY_ID TOTAL_PRODUCTS TOTAL_PRICE AVERAGE_PRICE
+----------- -------------- ----------- -------------
+        101              1        5499          5499
+        102              1        3499          3499
+        103              1        2999          2999
+        104              1        8999          8999
+
+
+
 SQL> SELECT
-  2      Payment_Mode,
-  3      SUM(Payment_Amount) AS Total_Collected
-  4  FROM Payment
-  5  GROUP BY Payment_Mode;
+  2      Category_ID,
+  3      COUNT(Product_ID) AS Total_Products
+  4  FROM Product
+  5  GROUP BY Category_ID
+  6  ORDER BY Category_ID;
 
-PAYMENT_MODE         TOTAL_COLLECTED
--------------------- ---------------
-UPI                             3897
-Card                            2797
-Cash                            2499
+CATEGORY_ID TOTAL_PRODUCTS
+----------- --------------
+        101              1
+        102              1
+        103              1
+        104              1
 
-SQL> SELECT
-  2      c.Customer_Name,
-  3      o.Order_ID,
-  4      p.Payment_ID,
-  5      p.Payment_Mode,
-  6      p.Payment_Date,
-  7      p.Payment_Amount,
-  8      p.Payment_Status
-  9  FROM Customer c
- 10  JOIN Orders o
- 11      ON c.Customer_ID = o.Customer_ID
- 12  JOIN Payment p
- 13      ON o.Order_ID = p.Order_ID
- 14  ORDER BY p.Payment_Date;
-
-CUSTOMER_NAME
---------------------------------------------------------------------------------
-  ORDER_ID PAYMENT_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-Ananya
-      1001        501 UPI                  01-OCT-26           2298
-Successful
-
-Rahul
-      1002        502 Card                 02-OCT-26            999
-Successful
-
-CUSTOMER_NAME
---------------------------------------------------------------------------------
-  ORDER_ID PAYMENT_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-
-Priya
-      1003        503 Cash                 03-OCT-26           2499
-Successful
-
-Arjun
-      1004        504 UPI                  04-OCT-26           1599
-
-CUSTOMER_NAME
---------------------------------------------------------------------------------
-  ORDER_ID PAYMENT_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
----------- ---------- -------------------- --------- --------------
-PAYMENT_STATUS
---------------------
-Successful
-
-Meera
-      1005        505 Card                 05-OCT-26           1798
-Successful
-
-SQL> COMMIT;
-
-Commit complete.
